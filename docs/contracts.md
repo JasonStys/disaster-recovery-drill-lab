@@ -24,10 +24,14 @@ Only new lowercase named direct children of repo out/; no existing output may be
 
 Wrong password: specific wrong-key message. Missing snapshot: exact absent full ID, failed snapshot load and OS-specific missing-file error. Corruption: flip a byte in a copy, prove its fingerprint changed and require an integrity-specific failure. Unrelated exits do not pass these checks. The original repository remains intact.
 
+On POSIX, restic packs are read-only. Only the selected pack in the new disposable corruption copy is chmod 0600 for byte injection. Original repository permissions are never changed.
+
 ## Docker and publication
 
 Dedicated Linux local socket explicitly on every call, independent of user contexts. New random dr-lab names and ownership labels; same image/non-root/capabilities/resource/isolation guards before exec/stop/removal. No network or ports, writable root, host/persistent mounts. Image digest pinned. Source readiness requires final PostgreSQL PID 1 plus correct database/commit tracking, not temporary initdb server readiness. SQL archives are trusted program-created fixtures only.
 
 Database restore uses one transaction and exit-on-error. Real restored PK/FK/CHECK negatives require SQLSTATE 23505/23503/23514 and unchanged ledger. A second independent empty container restores the same exact snapshot. Cleanup confirms absence of only the three owned containers.
+
+The digest-pinned official base contains a gosu helper with old Go-library advisories. The derived non-root-only image removes that unused root-transition component; no vulnerability ignore is used. Its actual configuration digest is scanned and source-bound in an ignored receipt before the drill. Root entrypoint operation is unsupported. The digest is a local build fingerprint, not an OCI signature or byte-identical-build guarantee.
 
 Reports require exactly five native or twelve PostgreSQL distinct PASS cases, complete source SHA and snapshot/archive fingerprints. Native evidence cannot claim PostgreSQL RTO/RPO. Proofs contain bounded printable strings, ints and booleans; only selected aggregates, no secrets/raw records/private paths. JSON and escaped CSP-restricted HTML go into a new directory. Hashes do not authenticate the observer.

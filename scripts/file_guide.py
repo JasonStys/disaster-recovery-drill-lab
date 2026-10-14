@@ -4,22 +4,22 @@
 # variable: BEGIN — line 33
 # variable: END — line 33
 # variable: SPECIAL — line 34
-# definition: description — line 52
-# parameter: path — line 52
-# variable: content — line 56
-# variable: line — line 64
-# definition: main — line 70
-# variable: parser — line 72
-# variable: args — line 74
-# variable: files — line 75
-# variable: rows — line 83
-# variable: path — line 84
-# variable: label — line 85
-# variable: readme — line 87
-# variable: original — line 88
-# variable: begin — line 89
-# variable: end — line 89
-# variable: expected — line 90
+# definition: description — line 53
+# parameter: path — line 53
+# variable: content — line 57
+# variable: line — line 65
+# definition: main — line 71
+# variable: parser — line 73
+# variable: args — line 75
+# variable: files — line 76
+# variable: rows — line 84
+# variable: path — line 85
+# variable: label — line 86
+# variable: readme — line 88
+# variable: original — line 89
+# variable: begin — line 90
+# variable: end — line 90
+# variable: expected — line 91
 # END CODE MAP
 
 from __future__ import annotations
@@ -32,6 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    ".dockerignore": "Excludes every project file except Dockerfile from the derived-image context.",
     ".gitattributes": "Portable LF text handling.",
     ".gitignore": "Excludes tools, runtime backups, passwords, caches and private drill outputs.",
     "LICENSE": "MIT license for authored code.",

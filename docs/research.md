@@ -11,6 +11,7 @@ Author: Jason Stys. Reviewed 2026-10-13; tools/images locked to verified hashes 
 - [PostgreSQL pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html): transactional exit-on-error restoration into a new trusted destination; arbitrary SQL archives are unsafe to import blindly.
 - [PostgreSQL commit information](https://www.postgresql.org/docs/current/functions-info.html) and [commit tracking](https://www.postgresql.org/docs/current/runtime-config-replication.html): start-time tracking and original xmin commit times are persisted before backup; restore xmin is a different transaction and would distort RPO.
 - [Official PostgreSQL image](https://hub.docker.com/_/postgres): pinned image, PostgreSQL18 volume parent /var/lib/postgresql, non-root user and bounded ephemeral tmpfs; no published port.
+- [Upstream PostgreSQL entrypoint](https://github.com/docker-library/postgres/blob/master/docker-entrypoint.sh): gosu is used by its root startup branch. This lab enforces postgres identity and removes the unused vulnerable helper from its derived image; the actual result is scanned, not ignored.
 - [Docker resource constraints](https://docs.docker.com/engine/containers/resource_constraints/): explicit CPU, memory and PID bounds rather than unbounded local services.
 - [GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions): full action revisions, least-privilege permissions and nonpersistent checkout credentials.
 

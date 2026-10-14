@@ -53,45 +53,45 @@
 # variable: path — line 258
 # variable: pack — line 261
 # variable: original — line 262
-# variable: target — line 263
-# variable: value — line 264
-# variable: result — line 269
-# variable: evidence — line 270
-# variable: message — line 273
-# definition: restore — line 283
-# parameter: name — line 283
-# parameter: self — line 283
-# parameter: snapshot — line 283
-# variable: target — line 288
-# variable: path — line 292
-# variable: paths — line 292
-# definition: Measurements — line 299
-# definition: __init__ — line 302
-# parameter: self — line 302
-# definition: check — line 306
-# parameter: name — line 306
-# parameter: proof — line 306
-# parameter: self — line 306
-# parameter: started — line 306
-# definition: report — line 317
-# parameter: dump — line 318
-# parameter: engine — line 318
-# parameter: recovery — line 318
-# parameter: self — line 318
-# parameter: snapshot — line 318
-# definition: native_drill — line 334
-# parameter: root — line 334
-# variable: measurements — line 336
-# variable: payload — line 337
-# variable: backup — line 339
-# variable: started — line 340
-# variable: snapshot — line 341
-# variable: started — line 345
-# variable: started — line 348
-# variable: started — line 351
-# variable: started — line 358
-# variable: recovered — line 359
-# variable: report — line 365
+# variable: target — line 265
+# variable: value — line 266
+# variable: result — line 271
+# variable: evidence — line 272
+# variable: message — line 275
+# definition: restore — line 285
+# parameter: name — line 285
+# parameter: self — line 285
+# parameter: snapshot — line 285
+# variable: target — line 290
+# variable: path — line 294
+# variable: paths — line 294
+# definition: Measurements — line 301
+# definition: __init__ — line 304
+# parameter: self — line 304
+# definition: check — line 308
+# parameter: name — line 308
+# parameter: proof — line 308
+# parameter: self — line 308
+# parameter: started — line 308
+# definition: report — line 319
+# parameter: dump — line 320
+# parameter: engine — line 320
+# parameter: recovery — line 320
+# parameter: self — line 320
+# parameter: snapshot — line 320
+# definition: native_drill — line 336
+# parameter: root — line 336
+# variable: measurements — line 338
+# variable: payload — line 339
+# variable: backup — line 341
+# variable: started — line 342
+# variable: snapshot — line 343
+# variable: started — line 347
+# variable: started — line 350
+# variable: started — line 353
+# variable: started — line 360
+# variable: recovered — line 361
+# variable: report — line 367
 # END CODE MAP
 
 from __future__ import annotations
@@ -260,6 +260,8 @@ class Restic:
             raise ValueError("actual pack data missing")
         pack = packs[0]
         original = sha256(pack)
+        # Restic packs are deliberately read-only on POSIX. Only the NEW disposable copy is made writable for injection.
+        os.chmod(pack, 0o600)
         with pack.open("r+b") as target:
             value = target.read(1)
             target.seek(0)

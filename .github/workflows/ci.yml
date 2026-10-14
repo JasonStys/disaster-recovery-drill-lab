@@ -76,7 +76,7 @@ jobs:
           python-version: '3.14'
       - run: python scripts/bootstrap.py
       - run: python scripts/scanners.py trivy
-      - name: Actual pinned PostgreSQL image HIGH/CRITICAL gate
+      - name: Actual derived non-root PostgreSQL image HIGH/CRITICAL gate
         run: python scripts/image_check.py
       - name: Real dump, encryption, source loss, isolated transactional restore and objectives
         run: python scripts/postgres_drill.py --output out/postgres-ci --ack-disposable-docker

@@ -12,5 +12,7 @@ Review plan covers bounded input, append-only data and original commit times, ex
 - Review found that a backdated new order could falsely look like a zero-time loss window. New order times must now advance beyond baseline; a regression rejects backdated appends.
 - Source readiness checks distinguish final PostgreSQL PID1 from its temporary initialization server.
 - Original business commit times are persisted from PostgreSQL's commit tracking; restore transaction xmin must not substitute for original timestamps.
+- [Initial hosted run 38499138631](https://github.com/JasonStys/disaster-recovery-drill-lab/actions/runs/38499138631) caught POSIX read-only pack permissions in the disposable corruption copy. Only that new copy is made writable for injection; original permissions are preserved. Windows had passed; Linux/macOS acceptance requires a fresh completed rerun.
+- The same run found 24 HIGH and one CRITICAL Go-library advisories in the official base's gosu binary; Alpine OS findings were zero. A derived non-root-only image removes this unused root-transition helper. The actual built image remains subject to the full HIGH/CRITICAL scan; no findings are suppressed. Fresh database validation is required before claiming success.
 
 No local Docker repair, production data access, paid deployment or Actions-history deletion is performed. This repository uploads no backup/password/artifact/cache. Point-in-time scans do not prove absence of future vulnerabilities; scope/gaps remain explicit.

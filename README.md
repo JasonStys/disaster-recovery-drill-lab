@@ -38,12 +38,14 @@ Use the `postgres` job in [Actions](https://github.com/JasonStys/disaster-recove
 
 ```bash
 python scripts/bootstrap.py
+python scripts/scanners.py trivy
+python scripts/image_check.py
 python scripts/postgres_drill.py --output out/my-first-database --ack-disposable-docker
 ```
 
 The script forces the local Docker socket and creates only its own three random labeled containers. It never opens a host database port, mounts host data or targets an existing database. Docker Desktop is neither started nor repaired by native validation. The source is stopped to simulate its loss; two independent empty destinations verify recovery. Cleanup removes only proven owned resources.
 
-The database image is an official digest-pinned PostgreSQL image. CI scans it for HIGH/CRITICAL findings before starting the exercise. Plaintext dump/password/env files exist **only** inside the ignored private synthetic workspace; the restic repository is encrypted. Published reports contain selected hashes, durations, counts and booleans—not passwords, full container inspection, raw records or file paths. This is not protection against a local administrator.
+The database image is built from an official digest-pinned PostgreSQL base, removing the unused vulnerable gosu root-switch helper and setting the default user to postgres. Root startup is intentionally unsupported. CI scans the actual derived image configuration digest for HIGH/CRITICAL findings before use; the drill requires a current-source scan receipt and records that digest. Plaintext dump/password/env files exist **only** inside the ignored private synthetic workspace; the restic repository is encrypted. Published reports contain selected hashes, durations, counts and booleans—not passwords, full container inspection, raw records or file paths. This is not protection against a local administrator.
 
 RTO measures source-stop initiation through restored database/data/constraint validation; backup creation, image download, human detection, DNS, application cutover and repeatability testing are outside that interval. RPO is the latest original committed business-order time at source minus the latest recovered one, with explicit lost-order count. Defaults: RTO ≤180s, RPO ≤60s, at most five lost orders. Meeting those **lab objectives** does not make five lost orders acceptable for a real business. See [contracts](docs/contracts.md).
 
@@ -61,11 +63,13 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 
 | File | Purpose |
 | --- | --- |
+| [.dockerignore](.dockerignore) | Excludes every project file except Dockerfile from the derived-image context. |
 | [.gitattributes](.gitattributes) | Portable LF text handling. |
 | [.github/workflows/ci.yml](.github/workflows/ci.yml) | Jason Stys: portable native encryption tests, real isolated PostgreSQL recovery and security; no artifacts/caches. |
 | [.github/workflows/codeql.yml](.github/workflows/codeql.yml) | Jason Stys: security-extended Python analysis with scoped upload permissions and no database archive upload. |
 | [.gitignore](.gitignore) | Excludes tools, runtime backups, passwords, caches and private drill outputs. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution and coding conventions. |
+| [Dockerfile](Dockerfile) | Jason Stys: derived non-root-only PostgreSQL lab image; remove unused vulnerable root-switch helper. |
 | [LICENSE](LICENSE) | MIT license for authored code. |
 | [README.md](README.md) | Disaster Recovery Drill Lab. |
 | [SECURITY.md](SECURITY.md) | Security boundary and reporting. |
@@ -89,7 +93,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [scripts/bootstrap.py](scripts/bootstrap.py) | Install one official hash-pinned native restic binary; no shell installer or archive paths execute. Jason Stys. |
 | [scripts/code\_map.py](scripts/code_map.py) | Generate/check exact Python, SQL, shell and YAML symbol positions. Created by Jason Stys. |
 | [scripts/file\_guide.py](scripts/file_guide.py) | Generate exhaustive Git-tracked README summaries without including ignored runtime data. Jason Stys. |
-| [scripts/image\_check.py](scripts/image_check.py) | Scan only the immutable official PostgreSQL image used by the owned Linux drill. Jason Stys. |
+| [scripts/image\_check.py](scripts/image_check.py) | Build/scan a non-root-only image from the immutable official PostgreSQL base; do not suppress vulnerabilities. Jason Stys. |
 | [scripts/native\_drill.py](scripts/native_drill.py) | Run the actual encrypted synthetic-file exercise without Docker or real user data. Jason Stys. |
 | [scripts/postgres\_drill.py](scripts/postgres_drill.py) | Actual isolated PostgreSQL logical-snapshot disaster drill; only uniquely owned synthetic containers. Jason Stys. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |

@@ -1,133 +1,134 @@
 """Actual isolated PostgreSQL logical-snapshot disaster drill; only uniquely owned synthetic containers. Jason Stys."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 148
-# definition: inspect_guard — line 156
-# parameter: image — line 156
-# parameter: name — line 156
-# parameter: raw — line 156
-# parameter: run_id — line 156
-# variable: item — line 160
-# variable: host — line 161
-# variable: mount — line 193
-# definition: Postgres — line 197
-# definition: __init__ — line 200
-# parameter: root — line 200
-# parameter: self — line 200
-# variable: key — line 218
-# variable: value — line 218
-# definition: command — line 233
-# parameter: args — line 233
-# parameter: self — line 233
-# definition: run — line 239
-# parameter: allow_failure — line 240
-# parameter: args — line 240
-# parameter: data — line 240
-# parameter: self — line 240
-# variable: result — line 243
-# definition: inspect — line 255
-# parameter: name — line 255
-# parameter: self — line 255
-# variable: value — line 259
-# definition: start — line 263
-# parameter: role — line 263
-# parameter: self — line 263
-# variable: name — line 267
-# variable: existing — line 270
-# variable: deadline — line 310
-# variable: item — line 312
-# variable: ready — line 315
-# variable: process — line 330
-# variable: configured — line 335
-# definition: sql — line 345
-# parameter: content — line 346
-# parameter: name — line 346
-# parameter: reject_state — line 346
-# parameter: self — line 346
-# variable: args — line 350
-# variable: result — line 369
-# definition: fixture — line 378
-# parameter: filename — line 378
-# parameter: name — line 378
-# parameter: self — line 378
-# definition: capture — line 384
-# parameter: name — line 384
-# parameter: self — line 384
-# variable: value — line 386
-# definition: dump — line 390
-# parameter: name — line 390
-# parameter: self — line 390
-# variable: target — line 393
-# variable: descriptor — line 394
-# variable: output — line 395
-# variable: result — line 396
-# variable: content — line 422
-# definition: restore — line 427
-# parameter: archive — line 427
-# parameter: name — line 427
-# parameter: self — line 427
-# variable: source — line 430
-# variable: result — line 431
-# definition: constraints — line 459
-# parameter: baseline — line 459
-# parameter: name — line 459
-# parameter: self — line 459
-# definition: stop — line 478
-# parameter: name — line 478
-# parameter: self — line 478
-# definition: close — line 485
-# parameter: self — line 485
-# variable: removed — line 487
-# variable: name — line 488
-# variable: current — line 489
-# variable: after — line 494
-# variable: removed — line 497
-# definition: execute — line 502
-# parameter: root — line 502
-# variable: measurements — line 504
-# variable: database — line 505
-# variable: stage — line 506
-# variable: started — line 508
-# variable: source — line 509
-# variable: stage — line 521
-# variable: started — line 522
-# variable: baseline — line 525
-# variable: dump — line 528
-# variable: stage — line 536
-# variable: started — line 537
-# variable: backup — line 538
-# variable: snapshot — line 539
-# variable: stage — line 543
-# variable: started — line 544
-# variable: stage — line 547
-# variable: started — line 548
-# variable: head — line 554
-# variable: stage — line 557
-# variable: recovery_started — line 558
-# variable: stage — line 565
-# variable: started — line 566
-# variable: recovered_dump — line 567
-# variable: restored — line 570
-# variable: recovered — line 572
-# variable: stage — line 585
-# variable: started — line 586
-# variable: elapsed — line 593
-# variable: stage — line 594
-# variable: started — line 595
-# variable: result — line 596
-# variable: stage — line 608
-# variable: started — line 609
-# variable: strict — line 610
+# variable: ROOT — line 149
+# definition: inspect_guard — line 157
+# parameter: image — line 157
+# parameter: name — line 157
+# parameter: raw — line 157
+# parameter: run_id — line 157
+# variable: item — line 161
+# variable: host — line 162
+# variable: mount — line 194
+# definition: Postgres — line 198
+# definition: __init__ — line 201
+# parameter: root — line 201
+# parameter: self — line 201
+# variable: receipt — line 213
+# variable: key — line 229
+# variable: value — line 229
+# definition: command — line 244
+# parameter: args — line 244
+# parameter: self — line 244
+# definition: run — line 250
+# parameter: allow_failure — line 251
+# parameter: args — line 251
+# parameter: data — line 251
+# parameter: self — line 251
+# variable: result — line 254
+# definition: inspect — line 266
+# parameter: name — line 266
+# parameter: self — line 266
+# variable: value — line 270
+# definition: start — line 274
+# parameter: role — line 274
+# parameter: self — line 274
+# variable: name — line 278
+# variable: existing — line 281
+# variable: deadline — line 321
+# variable: item — line 323
+# variable: ready — line 326
+# variable: process — line 341
+# variable: configured — line 346
+# definition: sql — line 356
+# parameter: content — line 357
+# parameter: name — line 357
+# parameter: reject_state — line 357
+# parameter: self — line 357
+# variable: args — line 361
+# variable: result — line 380
+# definition: fixture — line 389
+# parameter: filename — line 389
+# parameter: name — line 389
+# parameter: self — line 389
+# definition: capture — line 395
+# parameter: name — line 395
+# parameter: self — line 395
+# variable: value — line 397
+# definition: dump — line 401
+# parameter: name — line 401
+# parameter: self — line 401
+# variable: target — line 404
+# variable: descriptor — line 405
+# variable: output — line 406
+# variable: result — line 407
+# variable: content — line 433
+# definition: restore — line 438
+# parameter: archive — line 438
+# parameter: name — line 438
+# parameter: self — line 438
+# variable: source — line 441
+# variable: result — line 442
+# definition: constraints — line 470
+# parameter: baseline — line 470
+# parameter: name — line 470
+# parameter: self — line 470
+# definition: stop — line 489
+# parameter: name — line 489
+# parameter: self — line 489
+# definition: close — line 496
+# parameter: self — line 496
+# variable: removed — line 498
+# variable: name — line 499
+# variable: current — line 500
+# variable: after — line 505
+# variable: removed — line 508
+# definition: execute — line 513
+# parameter: root — line 513
+# variable: measurements — line 515
+# variable: database — line 516
+# variable: stage — line 517
+# variable: started — line 519
+# variable: source — line 520
+# variable: stage — line 533
+# variable: started — line 534
+# variable: baseline — line 537
+# variable: dump — line 540
+# variable: stage — line 548
+# variable: started — line 549
+# variable: backup — line 550
+# variable: snapshot — line 551
+# variable: stage — line 555
+# variable: started — line 556
+# variable: stage — line 559
+# variable: started — line 560
+# variable: head — line 566
+# variable: stage — line 569
+# variable: recovery_started — line 570
+# variable: stage — line 577
+# variable: started — line 578
+# variable: recovered_dump — line 579
+# variable: restored — line 582
+# variable: recovered — line 584
+# variable: stage — line 597
+# variable: started — line 598
+# variable: elapsed — line 605
+# variable: stage — line 606
+# variable: started — line 607
+# variable: result — line 608
 # variable: stage — line 620
 # variable: started — line 621
-# variable: repeated_dump — line 622
-# variable: repeated — line 625
-# variable: stage — line 635
-# variable: started — line 636
-# variable: removed — line 637
-# variable: report — line 643
-# definition: main — line 660
-# variable: parser — line 662
-# variable: args — line 667
+# variable: strict — line 622
+# variable: stage — line 632
+# variable: started — line 633
+# variable: repeated_dump — line 634
+# variable: repeated — line 637
+# variable: stage — line 647
+# variable: started — line 648
+# variable: removed — line 649
+# variable: report — line 655
+# definition: main — line 672
+# variable: parser — line 674
+# variable: args — line 679
 # END CODE MAP
 
 from __future__ import annotations
@@ -147,7 +148,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from dr.backup import Measurements, Restic, private_file, sha256, workspace  # noqa: E402
+from dr.backup import Measurements, Restic, private_file, revision, sha256, workspace  # noqa: E402
 from dr.contracts import decode  # noqa: E402
 from dr.evidence import publish  # noqa: E402
 from dr.ledger import dataset, evaluate  # noqa: E402
@@ -204,11 +205,21 @@ class Postgres:
         self.root = root
         self.run_id = secrets.token_hex(8)
         self.prefix = "dr-lab-" + self.run_id
-        self.image = json.loads((ROOT / "tools.lock.json").read_text(encoding="utf-8"))[
+        self.base = json.loads((ROOT / "tools.lock.json").read_text(encoding="utf-8"))[
             "postgres_image"
         ]
-        if not re.fullmatch(r"postgres:18-alpine@sha256:[0-9a-f]{64}", self.image):
+        if not re.fullmatch(r"postgres:18-alpine@sha256:[0-9a-f]{64}", self.base):
             raise ValueError("pinned official PostgreSQL image required")
+        receipt = decode((ROOT / ".tools/postgres-image.json").read_bytes())
+        if (
+            not isinstance(receipt, dict)
+            or receipt.get("source_sha") != revision()
+            or receipt.get("base") != self.base
+            or not isinstance(receipt.get("image_id"), str)
+            or not re.fullmatch(r"sha256:[0-9a-f]{64}", receipt["image_id"])
+        ):
+            raise ValueError("current-source scanned derived image required")
+        self.image = receipt["image_id"]
         self.binary = shutil.which("docker")
         if self.binary is None:
             raise ValueError("Docker CLI required")
@@ -516,6 +527,7 @@ def execute(root: Path) -> dict[str, Any]:
                 "non_root": True,
                 "read_only_root": True,
                 "storage": "bounded-tmpfs",
+                "built_image_id": database.image,
             },
         )
         stage = "consistent_dump"
