@@ -1,0 +1,25 @@
+[project]
+name = "disaster-recovery-drill-lab"
+version = "1.0.0"
+description = "Measured encrypted-backup and isolated PostgreSQL recovery lab by Jason Stys"
+requires-python = ">=3.12"
+
+[tool.ruff]
+target-version = "py312"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["dr"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = ["error"]
+[tool.coverage.run]
+branch = true
+source = ["dr"]
+[tool.coverage.report]
+fail_under = 90
+show_missing = true

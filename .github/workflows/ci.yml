@@ -1,0 +1,107 @@
+# Jason Stys: portable native encryption tests, real isolated PostgreSQL recovery and security; no artifacts/caches.
+# BEGIN CODE MAP (generated; python scripts/code_map.py)
+# parameter: name — line 29
+# parameter: on — line 30
+# parameter: push — line 31
+# parameter: branches — line 32
+# parameter: pull_request — line 33
+# parameter: workflow_dispatch — line 34
+# parameter: permissions — line 35
+# parameter: contents — line 36
+# parameter: concurrency — line 37
+# parameter: group — line 38
+# expression: github.ref — line 38
+# parameter: jobs — line 40
+# parameter: quality — line 41
+# expression: matrix.python — line 42
+# expression: matrix.os — line 42
+# parameter: strategy — line 45
+# parameter: matrix — line 47
+# parameter: include — line 48
+# parameter: steps — line 53
+# parameter: uses — line 54
+# parameter: with — line 55
+# parameter: run — line 60
+# parameter: shell — line 63
+# parameter: postgres — line 67
+# parameter: security — line 85
+# END CODE MAP
+name: Validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    name: Python ${{ matrix.python }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-24.04, python: '3.12'}
+          - {os: ubuntu-24.04, python: '3.14'}
+          - {os: windows-latest, python: '3.14'}
+          - {os: macos-15-intel, python: '3.14'}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install --require-hashes -r requirements-dev.lock
+      - run: python scripts/bootstrap.py
+      - name: Unit/property, actual native restic and maintained code/docs
+        shell: bash
+        run: bash scripts/validate.sh
+      - name: Actual native CLI exercise on committed source
+        run: python scripts/native_drill.py --output out/native-ci
+  postgres:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - run: python scripts/bootstrap.py
+      - run: python scripts/scanners.py trivy
+      - name: Actual pinned PostgreSQL image HIGH/CRITICAL gate
+        run: python scripts/image_check.py
+      - name: Real dump, encryption, source loss, isolated transactional restore and objectives
+        run: python scripts/postgres_drill.py --output out/postgres-ci --ack-disposable-docker
+      - name: Validate actual aggregate; do not upload backups/passwords or create caches
+        run: python -m dr report out/postgres-ci/report/drill.json --output out/validated-postgres-report
+  security:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - run: python -m pip install --require-hashes -r requirements-dev.lock
+      - name: Complete development graph advisory audit; no runtime packages
+        run: python -m pip_audit -r requirements-dev.lock --disable-pip --no-deps
+      - name: Official hash-verified scanners
+        run: |
+          python scripts/scanners.py gitleaks
+          python scripts/scanners.py actionlint
+      - name: Full-history secrets and native workflow/shell checks
+        run: |
+          .tools/gitleaks git . --redact --no-banner
+          .tools/actionlint
+          shellcheck scripts/validate.sh
