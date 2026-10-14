@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'"><title>Recovery Drill — Jason Stys</title><h1>Disaster Recovery Drill Lab</h1><p>Created by Jason Stys · github.com/JasonStys · LinkedIn: jason-stys-31b30b351</p><p>Measured synthetic lab. Not a production backup, zero-data-loss guarantee or certification.</p><table><caption>Observed checks; duration in milliseconds</caption><tr><th>Case</th><th>Result</th><th>Duration</th></tr><tr><td>encrypted_backup</td><td>PASS</td><td>4334</td></tr><tr><td>wrong_password</td><td>PASS</td><td>504</td></tr><tr><td>missing_snapshot</td><td>PASS</td><td>699</td></tr><tr><td>corrupt_pack</td><td>PASS</td><td>966</td></tr><tr><td>exact_restore</td><td>PASS</td><td>718</td></tr></table><h2>Measured aggregate</h2><pre>{
+  &quot;author&quot;: &quot;Jason Stys&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;duration_ms&quot;: 4334,
+      &quot;evidence&quot;: {
+        &quot;engine&quot;: &quot;restic&quot;,
+        &quot;full_data_check&quot;: true
+      },
+      &quot;name&quot;: &quot;encrypted_backup&quot;,
+      &quot;result&quot;: &quot;PASS&quot;
+    },
+    {
+      &quot;duration_ms&quot;: 504,
+      &quot;evidence&quot;: {
+        &quot;specifically_rejected&quot;: true
+      },
+      &quot;name&quot;: &quot;wrong_password&quot;,
+      &quot;result&quot;: &quot;PASS&quot;
+    },
+    {
+      &quot;duration_ms&quot;: 699,
+      &quot;evidence&quot;: {
+        &quot;full_id_rejected&quot;: true
+      },
+      &quot;name&quot;: &quot;missing_snapshot&quot;,
+      &quot;result&quot;: &quot;PASS&quot;
+    },
+    {
+      &quot;duration_ms&quot;: 966,
+      &quot;evidence&quot;: {
+        &quot;changed_byte_verified&quot;: true,
+        &quot;integrity_rejected&quot;: true
+      },
+      &quot;name&quot;: &quot;corrupt_pack&quot;,
+      &quot;result&quot;: &quot;PASS&quot;
+    },
+    {
+      &quot;duration_ms&quot;: 718,
+      &quot;evidence&quot;: {
+        &quot;matching_sha256&quot;: true,
+        &quot;verify_enabled&quot;: true
+      },
+      &quot;name&quot;: &quot;exact_restore&quot;,
+      &quot;result&quot;: &quot;PASS&quot;
+    }
+  ],
+  &quot;dump_sha256&quot;: &quot;0b9d86dbdeeb4f5572c83c59a61301f1eb08e385e0dcf370b0cc7d3bd77fca48&quot;,
+  &quot;engine&quot;: &quot;native&quot;,
+  &quot;recovery&quot;: null,
+  &quot;schema&quot;: 1,
+  &quot;snapshot_id&quot;: &quot;a14a642a5ef2f49c42e46c4731fad7eeb2fd9c927504ac0882a4de25007a6fa8&quot;,
+  &quot;source_sha&quot;: &quot;d739fd1d9857408831b85d60b5c7390f17a79e77&quot;,
+  &quot;synthetic&quot;: true
+}</pre><p>Help: README and docs/runbook.md. No passwords, raw customer records or private paths are embedded.</p></html>

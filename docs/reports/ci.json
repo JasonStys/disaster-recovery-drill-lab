@@ -1,0 +1,68 @@
+{
+  "author": "Jason Stys",
+  "checked_at": "2026-10-14T02:14:07Z",
+  "repository": "JasonStys/disaster-recovery-drill-lab",
+  "executable_source_sha": "d739fd1d9857408831b85d60b5c7390f17a79e77",
+  "scope": "Immutable executable-source snapshot including POSIX tamper-copy handling and the scanned non-root-only derived image. Report-only follow-ups run the same gates; current main is shown by Actions/badges.",
+  "validate": {
+    "run_id": 38499688607,
+    "url": "https://github.com/JasonStys/disaster-recovery-drill-lab/actions/runs/38499688607",
+    "conclusion": "success",
+    "completed_at": "2026-10-14T02:12:17Z",
+    "jobs": [
+      {
+        "name": "security",
+        "job_id": 115643430678,
+        "conclusion": "success"
+      },
+      {
+        "name": "Python 3.12 / ubuntu-24.04",
+        "job_id": 115643430859,
+        "conclusion": "success"
+      },
+      {
+        "name": "postgres",
+        "job_id": 115643430950,
+        "conclusion": "success"
+      },
+      {
+        "name": "Python 3.14 / macos-15-intel",
+        "job_id": 115643431061,
+        "conclusion": "success"
+      },
+      {
+        "name": "Python 3.14 / ubuntu-24.04",
+        "job_id": 115643431066,
+        "conclusion": "success"
+      },
+      {
+        "name": "Python 3.14 / windows-latest",
+        "job_id": 115643431115,
+        "conclusion": "success"
+      }
+    ]
+  },
+  "codeql": {
+    "run_id": 38499688633,
+    "url": "https://github.com/JasonStys/disaster-recovery-drill-lab/actions/runs/38499688633",
+    "conclusion": "success",
+    "completed_at": "2026-10-14T02:11:55Z",
+    "jobs": [
+      {
+        "name": "CodeQL / Python",
+        "job_id": 115643431222,
+        "conclusion": "success"
+      }
+    ],
+    "open_alert_count": 0
+  },
+  "synthetic": true,
+  "tests_per_lane": 79,
+  "statement_branch_coverage_percent": 98.14,
+  "native_restic_cases": 5,
+  "actual_postgres_cases": 12,
+  "storage": {
+    "artifact_upload_steps": false,
+    "actions_cache_creation_steps": false
+  }
+}

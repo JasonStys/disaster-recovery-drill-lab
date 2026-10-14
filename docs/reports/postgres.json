@@ -1,0 +1,138 @@
+{
+  "author": "Jason Stys",
+  "checks": [
+    {
+      "duration_ms": 1354,
+      "evidence": {
+        "built_image_id": "sha256:4489db8abd200de282e3b1ccd720c1a6c05dbecf490a3d61d88904f399db2dc4",
+        "network": "none",
+        "non_root": true,
+        "ports_published": false,
+        "read_only_root": true,
+        "storage": "bounded-tmpfs"
+      },
+      "name": "isolation",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 307,
+      "evidence": {
+        "format": "pg_dump-custom",
+        "orders": 40,
+        "settled_source": true
+      },
+      "name": "consistent_dump",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 4877,
+      "evidence": {
+        "engine": "restic",
+        "full_data_check": true
+      },
+      "name": "encrypted_backup",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 471,
+      "evidence": {
+        "specifically_rejected": true
+      },
+      "name": "wrong_password",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 690,
+      "evidence": {
+        "changed_byte_verified": true,
+        "integrity_rejected": true
+      },
+      "name": "corrupt_pack",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 96,
+      "evidence": {
+        "backed_up_orders": 40,
+        "head_orders": 45,
+        "source_running": false
+      },
+      "name": "source_loss",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 2124,
+      "evidence": {
+        "exact_dump_hash": true,
+        "matching_ledger": true,
+        "orders": 40,
+        "single_transaction": true
+      },
+      "name": "isolated_restore",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 198,
+      "evidence": {
+        "negative_writes_unchanged": true,
+        "specific_sqlstate_checks": 3
+      },
+      "name": "constraints",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 1,
+      "evidence": {
+        "loss_reported": 5,
+        "rpo_met": true,
+        "rto_met": true
+      },
+      "name": "objectives",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 1,
+      "evidence": {
+        "zero_loss_requirement_rejected": true
+      },
+      "name": "strict_objective_rejection",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 2138,
+      "evidence": {
+        "matching_ledger": true,
+        "second_empty_environment": true
+      },
+      "name": "repeat_restore",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 207,
+      "evidence": {
+        "absence_verified": true,
+        "containers_removed": 3
+      },
+      "name": "owned_cleanup",
+      "result": "PASS"
+    }
+  ],
+  "dump_sha256": "71d6c4195138b070fe7687799cf24177a741858fa125d711d5295076d2ed80d8",
+  "engine": "postgres",
+  "recovery": {
+    "lost_order_limit": 5,
+    "lost_orders": 5,
+    "observed_rpo_ms": 6291,
+    "observed_rto_ms": 2419,
+    "recovered_fingerprint": "fc723bb2b73d2393ed32c14278c9b6cb1f4b4bfa44cbcac99aeeb94891a2e22d",
+    "recovered_orders": 40,
+    "result": "PASS",
+    "rpo_limit_ms": 60000,
+    "rto_limit_ms": 180000,
+    "snapshot_matches": true
+  },
+  "schema": 1,
+  "snapshot_id": "f1f353cafaa282bcacf8fb595f6649b2fdab3ab74d45d3f1d4df34e454918f38",
+  "source_sha": "d739fd1d9857408831b85d60b5c7390f17a79e77",
+  "synthetic": true
+}

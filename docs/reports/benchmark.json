@@ -1,0 +1,22 @@
+{
+  "author": "Jason Stys",
+  "baseline_orders": 2,
+  "batches": 5,
+  "correctness_oracle": "PASS, one lost order, 400ms window",
+  "engine": "native-Python-evaluate",
+  "evaluations_per_batch": 100,
+  "head_orders": 3,
+  "includes_database_or_restic": false,
+  "median_ms": 0.486,
+  "peak_python_bytes": 12639,
+  "platform": "Windows",
+  "python": "3.14.6",
+  "samples_ms": [
+    0.447,
+    0.486,
+    0.521,
+    0.428,
+    0.51
+  ],
+  "source_sha": "d739fd1d9857408831b85d60b5c7390f17a79e77"
+}

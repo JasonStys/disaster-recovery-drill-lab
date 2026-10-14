@@ -75,6 +75,12 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [SECURITY.md](SECURITY.md) | Security boundary and reporting. |
 | [docs/architecture.md](docs/architecture.md) | ADR-001: observed, isolated logical-snapshot recovery. |
 | [docs/contracts.md](docs/contracts.md) | Input, backup and recovery contracts. |
+| [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured independent consistency/objective evaluation benchmark. |
+| [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
+| [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
+| [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
+| [docs/reports/postgres.html](docs/reports/postgres.html) | Escaped inert HTML rendering of actual PostgreSQL results. |
+| [docs/reports/postgres.json](docs/reports/postgres.json) | Actual isolated PostgreSQL restore and objective measurements. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and author review. |
 | [docs/research.md](docs/research.md) | Primary research and design rationale. |
 | [docs/runbook.md](docs/runbook.md) | Operating and recovery runbook. |

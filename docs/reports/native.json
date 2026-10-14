@@ -1,0 +1,55 @@
+{
+  "author": "Jason Stys",
+  "checks": [
+    {
+      "duration_ms": 4334,
+      "evidence": {
+        "engine": "restic",
+        "full_data_check": true
+      },
+      "name": "encrypted_backup",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 504,
+      "evidence": {
+        "specifically_rejected": true
+      },
+      "name": "wrong_password",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 699,
+      "evidence": {
+        "full_id_rejected": true
+      },
+      "name": "missing_snapshot",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 966,
+      "evidence": {
+        "changed_byte_verified": true,
+        "integrity_rejected": true
+      },
+      "name": "corrupt_pack",
+      "result": "PASS"
+    },
+    {
+      "duration_ms": 718,
+      "evidence": {
+        "matching_sha256": true,
+        "verify_enabled": true
+      },
+      "name": "exact_restore",
+      "result": "PASS"
+    }
+  ],
+  "dump_sha256": "0b9d86dbdeeb4f5572c83c59a61301f1eb08e385e0dcf370b0cc7d3bd77fca48",
+  "engine": "native",
+  "recovery": null,
+  "schema": 1,
+  "snapshot_id": "a14a642a5ef2f49c42e46c4731fad7eeb2fd9c927504ac0882a4de25007a6fa8",
+  "source_sha": "d739fd1d9857408831b85d60b5c7390f17a79e77",
+  "synthetic": true
+}
