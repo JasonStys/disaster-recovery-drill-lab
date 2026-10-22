@@ -79,6 +79,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
 | [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
+| [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/postgres.html](docs/reports/postgres.html) | Escaped inert HTML rendering of actual PostgreSQL results. |
 | [docs/reports/postgres.json](docs/reports/postgres.json) | Actual isolated PostgreSQL restore and objective measurements. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and author review. |
