@@ -46,7 +46,7 @@ python scripts/postgres_drill.py --output out/my-first-database --ack-disposable
 
 The script forces the local Docker socket and creates only its own three random labeled containers. It never opens a host database port, mounts host data or targets an existing database. Docker Desktop is neither started nor repaired by native validation. The source is stopped to simulate its loss; two independent empty destinations verify recovery. Cleanup removes only proven owned resources.
 
-The database image is built from an official digest-pinned PostgreSQL base, removing the unused vulnerable gosu root-switch helper and setting the default user to postgres. Root startup is intentionally unsupported. CI scans the actual derived image configuration digest for HIGH/CRITICAL findings before use; the drill requires a current-source scan receipt and records that digest. Plaintext dump/password/env files exist **only** inside the ignored private synthetic workspace; the restic repository is encrypted. Published reports contain selected hashes, durations, counts and booleans—not passwords, full container inspection, raw records or file paths. This is not protection against a local administrator.
+The database image is built from an official digest-pinned PostgreSQL base, applies exact reviewed Alpine security-library package versions, removes the unused vulnerable gosu root-switch helper and sets the default user to postgres. Root startup is intentionally unsupported. CI scans the actual derived image configuration digest for HIGH/CRITICAL findings before use; the drill requires a current-source scan receipt and records that digest. Plaintext dump/password/env files exist **only** inside the ignored private synthetic workspace; the restic repository is encrypted. Published reports contain selected hashes, durations, counts and booleans—not passwords, full container inspection, raw records or file paths. This is not protection against a local administrator.
 
 RTO measures source-stop initiation through restored database/data/constraint validation; backup creation, image download, human detection, DNS, application cutover and repeatability testing are outside that interval. RPO is the latest original committed business-order time at source minus the latest recovered one, with explicit lost-order count. Defaults: RTO ≤180s, RPO ≤60s, at most five lost orders. Meeting those **lab objectives** does not make five lost orders acceptable for a real business. See [contracts](docs/contracts.md).
 
@@ -70,7 +70,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [.github/workflows/codeql.yml](.github/workflows/codeql.yml) | Jason Stys: security-extended Python analysis with scoped upload permissions and no database archive upload. |
 | [.gitignore](.gitignore) | Excludes tools, runtime backups, passwords, caches and private drill outputs. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution and coding conventions. |
-| [Dockerfile](Dockerfile) | Jason Stys: derived non-root-only PostgreSQL lab image; remove unused vulnerable root-switch helper. |
+| [Dockerfile](Dockerfile) | Jason Stys: non-root PostgreSQL image; pin patched Alpine libraries and remove unused root-switch helper. |
 | [LICENSE](LICENSE) | MIT license for authored code. |
 | [README.md](README.md) | Disaster Recovery Drill Lab. |
 | [SECURITY.md](SECURITY.md) | Security boundary and reporting. |
@@ -79,6 +79,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/recovery-planning.md](docs/recovery-planning.md) | Recovery-point and retention review. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured independent consistency/objective evaluation benchmark. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
+| [docs/reports/image-repair-2026-11-09.md](docs/reports/image-repair-2026-11-09.md) | Hosted derived-image advisory repair — 2026-11-09. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
 | [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
 | [docs/reports/planning-2026-11-09.md](docs/reports/planning-2026-11-09.md) | Recovery-point review validation — 2026-11-09. |
