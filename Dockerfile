@@ -9,7 +9,7 @@ RUN apk add --no-cache --upgrade \
     libcurl=8.23.0-r0 \
     musl=1.2.6-r3 \
     musl-utils=1.2.6-r3 \
-    zlib=1.3.2-r1
+    zlib=1.4-r0
 # gosu is only used by the upstream entrypoint when started as root; this lab always starts as postgres.
 # This removes the unused component rather than ignoring its vulnerability findings.
 RUN rm /usr/local/bin/gosu

@@ -119,6 +119,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [tests/\_\_init\_\_.py](tests/__init__.py) | Synthetic test fixtures are not the published measured reports. Created by Jason Stys. |
 | [tests/conftest.py](tests/conftest.py) | Independent small fictional ledgers and explicitly fake report fixtures for edge-case tests. Jason Stys. |
 | [tests/test\_backup.py](tests/test_backup.py) | Real native restic encryption and negative oracles plus exclusive workspace guards. Jason Stys. |
+| [tests/test\_build\_diagnostics.py](tests/test_build_diagnostics.py) | Public Docker package failure diagnostics stay bounded and credential/terminal safe. Jason Stys. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | Strict JSON, size/depth/shape/type and ordinary-file adversarial boundaries. Jason Stys. |
 | [tests/test\_docker\_guards.py](tests/test_docker_guards.py) | Native ownership/isolation regressions use fabricated inspect fixtures; no local Docker call occurs. Jason Stys. |
 | [tests/test\_evidence.py](tests/test_evidence.py) | Fabricated report fixtures validate rejection/privacy/escaping, not measured disaster-recovery claims. Jason Stys. |
