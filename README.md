@@ -10,6 +10,7 @@ A runnable encrypted-backup and isolated PostgreSQL recovery lab. Created by **[
 - **Real encrypted backups:** hash-verified official restic, exact immutable snapshot IDs, full data integrity checks, verified restore, wrong-password and changed-pack rejection. No invented cryptography.
 - **Real database recovery:** PostgreSQL custom logical dump, an empty isolated destination, single-transaction restore and independently checked customer/order/line/payment consistency. A second empty destination proves repeatability.
 - **Honest objectives:** preserve actual original business-transaction commit timestamps before backup. After a 40-order snapshot, five additional committed orders are intentionally absent on recovery. Report their count and measured timestamp window, not a claim of zero loss. Stricter zero-loss/time budgets must fail.
+- **[Recovery-point review](docs/recovery-planning.md):** compare several captured snapshots/restores against one source head and objective set; keep untested timing unknown, separate synthetic/measured provenance and explain conservative nondeleting retention recommendations.
 - **Safe lab boundaries:** uniquely labeled non-root containers, no network or published ports, read-only roots, dropped capabilities, bounded temporary storage/CPU/memory, guarded ownership checks and verified exact-name cleanup.
 - **Readable, tested evidence:** closed input contracts, meaningful negative/property cases, strict types/lint, measured benchmarks, escaped offline HTML/JSON, maintained source symbol/line maps, runbooks and storage-free CI.
 
@@ -75,10 +76,12 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [SECURITY.md](SECURITY.md) | Security boundary and reporting. |
 | [docs/architecture.md](docs/architecture.md) | ADR-001: observed, isolated logical-snapshot recovery. |
 | [docs/contracts.md](docs/contracts.md) | Input, backup and recovery contracts. |
+| [docs/recovery-planning.md](docs/recovery-planning.md) | Recovery-point and retention review. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured independent consistency/objective evaluation benchmark. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
 | [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
+| [docs/reports/planning-2026-11-09.md](docs/reports/planning-2026-11-09.md) | Recovery-point review validation — 2026-11-09. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/postgres.html](docs/reports/postgres.html) | Escaped inert HTML rendering of actual PostgreSQL results. |
 | [docs/reports/postgres.json](docs/reports/postgres.json) | Actual isolated PostgreSQL restore and objective measurements. |
@@ -92,6 +95,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [dr/contracts.py](dr/contracts.py) | Bounded strict JSON and ordinary-file contracts; no input becomes a command. Jason Stys. |
 | [dr/evidence.py](dr/evidence.py) | Closed synthetic measured recovery reports with escaped, network-inert HTML. Jason Stys. |
 | [dr/ledger.py](dr/ledger.py) | Independent relational/financial consistency oracle and snapshot recovery objectives. Jason Stys. |
+| [dr/planning.py](dr/planning.py) | Objective-aware recovery-point selection and nondeleting retention review. Created by Jason Stys. |
 | [examples/objective-evaluation.json](examples/objective-evaluation.json) | Explicitly synthetic offline ledger and recovery-objective fixture. |
 | [pyproject.toml](pyproject.toml) | Strict types, lint, tests and combined statement/branch coverage gate. |
 | [requirements-dev.in](requirements-dev.in) | Exact validation dependencies; standard-library application runtime. |
@@ -102,6 +106,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [scripts/file\_guide.py](scripts/file_guide.py) | Generate exhaustive Git-tracked README summaries without including ignored runtime data. Jason Stys. |
 | [scripts/image\_check.py](scripts/image_check.py) | Build/scan a non-root-only image from the immutable official PostgreSQL base; do not suppress vulnerabilities. Jason Stys. |
 | [scripts/native\_drill.py](scripts/native_drill.py) | Run the actual encrypted synthetic-file exercise without Docker or real user data. Jason Stys. |
+| [scripts/planning\_demo.py](scripts/planning_demo.py) | Generate fictional multi-point dispatch-supply recovery review input. Created by Jason Stys. |
 | [scripts/postgres\_drill.py](scripts/postgres_drill.py) | Actual isolated PostgreSQL logical-snapshot disaster drill; only uniquely owned synthetic containers. Jason Stys. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
 | [scripts/validate.sh](scripts/validate.sh) | Strict portable tests and maintained documentation/source invariants. Created by Jason Stys. |
@@ -117,6 +122,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [tests/test\_docker\_guards.py](tests/test_docker_guards.py) | Native ownership/isolation regressions use fabricated inspect fixtures; no local Docker call occurs. Jason Stys. |
 | [tests/test\_evidence.py](tests/test_evidence.py) | Fabricated report fixtures validate rejection/privacy/escaping, not measured disaster-recovery claims. Jason Stys. |
 | [tests/test\_ledger.py](tests/test_ledger.py) | Independent money/key oracles, snapshot equality and recovery-objective boundaries. Jason Stys. |
+| [tests/test\_planning.py](tests/test_planning.py) | Independent recovery selection, unknown-time and no-pruning retention tests. Created by Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Official restic/scanner archive hashes and immutable PostgreSQL image digest. |
 
 <!-- END FILE GUIDE -->
