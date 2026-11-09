@@ -1,17 +1,24 @@
 """Build/scan a non-root-only image from the immutable official PostgreSQL base; do not suppress vulnerabilities. Jason Stys."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 26
-# definition: main — line 29
-# variable: base — line 33
-# variable: dockerfile — line 36
-# variable: environment — line 42
-# variable: key — line 44
-# variable: value — line 44
-# variable: docker — line 47
-# variable: source_sha — line 48
-# variable: build — line 51
-# variable: image — line 70
-# variable: metadata — line 89
+# variable: ROOT — line 33
+# definition: public_build_diagnostics — line 36
+# parameter: content — line 36
+# variable: clean — line 38
+# variable: lines — line 39
+# variable: line — line 40
+# variable: line — line 54
+# variable: character — line 56
+# definition: main — line 61
+# variable: base — line 65
+# variable: dockerfile — line 68
+# variable: environment — line 74
+# variable: key — line 76
+# variable: value — line 76
+# variable: docker — line 79
+# variable: source_sha — line 80
+# variable: build — line 83
+# variable: image — line 102
+# variable: metadata — line 123
 # END CODE MAP
 
 from __future__ import annotations
@@ -24,6 +31,31 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def public_build_diagnostics(content: str) -> str:
+    """Bound public package/build diagnostics; remove terminal controls, URL credentials and secret-like lines."""
+    clean = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", content)
+    lines = []
+    for line in clean.splitlines()[-80:]:
+        if not re.search(
+            r"error|warning|failed|unable|apk|packages|brotli|curl|musl|zlib|fetch|repository",
+            line,
+            re.I,
+        ):
+            continue
+        if re.search(
+            r"password|token|secret|authorization|credential|(?:AKIA|ASIA)[A-Z0-9]{16}|gh[pousr]_|github_pat_",
+            line,
+            re.I,
+        ):
+            lines.append("[credential-like build diagnostic omitted]")
+            continue
+        line = re.sub(r"(https?://)[^/\s@]+@", r"\1<redacted>@", line)
+        lines.append(
+            "".join(character for character in line if 32 <= ord(character) < 127)[:400]
+        )
+    return "\n".join(lines)[-4096:] or "No public package diagnostic was available."
 
 
 def main() -> int:
@@ -69,6 +101,8 @@ def main() -> int:
     )
     image = build.stdout.strip()
     if build.returncode or not re.fullmatch(r"sha256:[0-9a-f]{64}", image):
+        print("Derived image build failed; bounded public package diagnostics follow:")
+        print(public_build_diagnostics(build.stderr))
         raise ValueError("owned derived image build failed")
     subprocess.run(
         [
