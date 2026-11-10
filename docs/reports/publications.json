@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "project": "disaster-recovery-drill-lab",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "ceb77d8f0d0aafb647c6873adf94c730d6eca168",
+  "sourceUrl": "https://github.com/JasonStys/disaster-recovery-drill-lab/tree/ceb77d8f0d0aafb647c6873adf94c730d6eca168",
+  "functionalEvidenceBaseline": "ceb77d8f0d0aafb647c6873adf94c730d6eca168",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42706535987,
+      "event": "push",
+      "headSha": "ceb77d8f0d0aafb647c6873adf94c730d6eca168",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/disaster-recovery-drill-lab/actions/runs/42706535987"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42706535971,
+      "event": "push",
+      "headSha": "ceb77d8f0d0aafb647c6873adf94c730d6eca168",
+      "name": "Validate",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/disaster-recovery-drill-lab/actions/runs/42706535971"
+    }
+  ],
+  "summary": "Compare captured recovery candidates by provenance, RPO/RTO and loss; add non-deleting retention review and patch actual restored-container vulnerabilities.",
+  "rationale": "Connects recovery selection to measured evidence while keeping untested candidates explicitly unknown.",
+  "limitations": [
+    "Captured provenance and timings are assertions, not authenticated backup acquisition.",
+    "Manual retention review never authorizes or performs deletion.",
+    "Lab RPO/RTO objectives do not authorize production recovery or imply zero loss for untested candidates."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 44894,
+      "sha256": "abea4ad7d6bcd6efccfdecf9ec71d0a75a4b50159e3dc14797bbce4d60194575",
+      "sourceBaseline": "ceb77d8f0d0aafb647c6873adf94c730d6eca168",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 5,
+        "renderedPageSha256": {
+          "page-1.png": "15df176517943a57f5e32a6ba871abacf0bbe957ab39fa26889b0e5faaa3751f",
+          "page-2.png": "34944066cb57027f23277a42c27c6ac560e275dd14cd9343bf82918d3bfd0775",
+          "page-3.png": "a9f28075c5e3915c66ead3a8dc26456e376bb105248eac66c529c12b219bfa36",
+          "page-4.png": "df8fc429087ce963e3360fc5e6ce9b6203a9fc672cc342ee94a989a0a33045e3",
+          "page-5.png": "6020d34eff566f0ef28cb035d7c42150b13aac2e44714982dc3076ac9d072abf"
+        }
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}

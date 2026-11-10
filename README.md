@@ -76,9 +76,11 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [SECURITY.md](SECURITY.md) | Security boundary and reporting. |
 | [docs/architecture.md](docs/architecture.md) | ADR-001: observed, isolated logical-snapshot recovery. |
 | [docs/contracts.md](docs/contracts.md) | Input, backup and recovery contracts. |
+| [docs/handbook.md](docs/handbook.md) | Disaster Recovery Drill Lab handbook. |
 | [docs/recovery-planning.md](docs/recovery-planning.md) | Recovery-point and retention review. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured independent consistency/objective evaluation benchmark. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
+| [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/image-repair-2026-11-09.md](docs/reports/image-repair-2026-11-09.md) | Hosted derived-image advisory repair — 2026-11-09. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
 | [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
@@ -86,6 +88,8 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/postgres.html](docs/reports/postgres.html) | Escaped inert HTML rendering of actual PostgreSQL results. |
 | [docs/reports/postgres.json](docs/reports/postgres.json) | Actual isolated PostgreSQL restore and objective measurements. |
+| [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed Word project guide bound to the documented source revision. |
+| [docs/reports/publications.json](docs/reports/publications.json) | Exact Office digests, visual review scopes and immutable source baselines. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and author review. |
 | [docs/research.md](docs/research.md) | Primary research and design rationale. |
 | [docs/runbook.md](docs/runbook.md) | Operating and recovery runbook. |
@@ -128,3 +132,9 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [tools.lock.json](tools.lock.json) | Official restic/scanner archive hashes and immutable PostgreSQL image digest. |
 
 <!-- END FILE GUIDE -->
+
+## Documentation editions
+
+Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
+
+[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.
