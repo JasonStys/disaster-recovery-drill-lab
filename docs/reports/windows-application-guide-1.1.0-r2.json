@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "repository": "disaster-recovery-drill-lab",
+  "runtimeVersion": "1.1.0",
+  "runtimeSource": "a9b1347466f3301ed138e63a2a545d94c81eafb4",
+  "createdAt": "2026-11-11T18:18:23.436Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide-1.1.0-r2.docx",
+  "sha256": "f530d7b5f4958500937ba87f61df49591ee77244d333c09804ee9c39da735a39",
+  "screenshots": [
+    {
+      "file": "selected-evidence.png",
+      "sha256": "abee0387475e7d15ab69c0b473134484447845e191155615d69b446ace5ed6ce",
+      "width": 1276,
+      "height": 899,
+      "caption": "The installed app compares supplied recovery time, recovery-point gap and lost orders with their limits. These displayed times are captured input values, not a new measured restore."
+    },
+    {
+      "file": "owner-unknown-review.png",
+      "sha256": "8d2985f52696d1041d3f50dc0ddc9fb64df7165f4bc7431c7b70e99220fa68b0",
+      "width": 1276,
+      "height": 899,
+      "caption": "All four captured points remain visible. Two meet the selected objectives; one is untested. Eligibility and retention are review results, not live recovery or deletion."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "dr/desktop_project.py",
+      "first": 265,
+      "last": 283,
+      "sha256": "f743c9520f03d17d338c3d664a616a638887f1e7dfc8a620a74ab22842eab1a2",
+      "url": "https://github.com/JasonStys/disaster-recovery-drill-lab/blob/a9b1347466f3301ed138e63a2a545d94c81eafb4/dr/desktop_project.py#L265"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Independent distribution",
+      "observed": "All five downloaded release files matched provider hashes. The executable also matched its checksum sidecar. Installed resources remained byte-identical after actual use.",
+      "result": "Passed"
+    },
+    {
+      "name": "Actual use and restart",
+      "observed": "All 10 installed workflows and 10 exact evidence bundles passed the original full assertions. Both launches exited normally; reopening retained every saved bundle.",
+      "result": "Passed"
+    },
+    {
+      "name": "Source and security",
+      "observed": "All exact-source main workflows passed before publication. Configured processed CodeQL analysis had zero raw findings and zero open main alerts.",
+      "result": "Passed"
+    },
+    {
+      "name": "Individual shortcut",
+      "observed": "Desktop and Start-menu targets were read back. Full installed executable acceptance is distinct from activating a normal default-profile shortcut.",
+      "result": "Verified"
+    }
+  ],
+  "visualReview": "all four pages individually approved",
+  "reviewer": "root",
+  "reviewedPageHashes": {
+    "page-1.png": "774ce979af263a83cd3ddbbbfdb5eafb1bc700c726263e14870517c731254a64",
+    "page-2.png": "55f9db2a9ba9aa297ee2aa9809b5d637ab029fed9c6ab1b16de9e5e4846254a5",
+    "page-3.png": "0271f644bcd95df6554fbf1bec9ed9e19291ce6a449bbd3e973b1b7158849c4c",
+    "page-4.png": "ddd7cb58ba718162c1bcb6e4300d7d835a0c52f40d96be4f54662173d9490a0b"
+  },
+  "privateTestInputsOnly": true
+}
