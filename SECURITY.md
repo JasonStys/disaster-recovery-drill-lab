@@ -15,3 +15,7 @@ pg_restore can execute database-origin SQL: NEVER adapt this to uploaded/untrust
 Recovery completion requires independent whole-ledger equality plus actual constraints, not merely process exit 0. Wrong key, missing snapshot and corruption cases use specific error oracles; generic errors cannot masquerade as security controls. Reports escape strings and allow no scripts/network under a restrictive CSP.
 
 Dependency, image, secret/workflow and CodeQL checks are point-in-time evidence, not certification. Native tool/SQL/Docker orchestration and the helper scripts have separate integration checks; coverage percentage applies only to authored dr/ modules. Follow the runbook for cleanup/incident escalation. Do not weaken gates or delete failed runs to make results look successful.
+
+## Native offline application boundary
+
+Only authorized bounded schema data and explicit review parameters are accepted. No live provider, real credentials, untrusted program/SQL or operational enforcement is introduced. Dedicated profile reports and paths remain sensitive owner-local plaintext; there is no multiuser login or encryption claim. Static fixed-database/lock/marker/sidecar alias/hardlink admission precedes initialization and preserves ordinary recovery files; it cannot contain a malicious same-user process. Exit drains the exact worker before releasing ownership. [Complete native scope and input/privacy guidance](docs/native-application.md).

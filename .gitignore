@@ -12,3 +12,7 @@ coverage.xml
 *.dump
 *.password
 *.env
+
+# Generated portable builds; owner profiles stay outside the installation.
+release/
+*.spec

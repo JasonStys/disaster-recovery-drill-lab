@@ -52,3 +52,7 @@ The reviewed source is [`ceb77d8f0d0aafb647c6873adf94c730d6eca168`](https://gith
 ## Maintaining these editions
 
 Update the editable usage/design/test documents first. Rebuild and visually review every Word page and workbook tab before replacing an edition; verify the exact binary digests and evidence source in publications.json. Keep account data, logs with secrets, installed-app state and private test stores out of documentation. Source and release assets retain their existing security and licensing boundaries.
+
+## Native offline application
+
+[Practical controls, schemas, privacy, build and lifecycle](native-application.md) · [Dated candidate validation](reports/native-workbench-2026-11-11.md). Earlier Office editions retain their original source baseline.
