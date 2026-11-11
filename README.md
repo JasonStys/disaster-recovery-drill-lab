@@ -88,6 +88,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured independent consistency/objective evaluation benchmark. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
+| [docs/reports/image-library-security-2026-11-11.md](docs/reports/image-library-security-2026-11-11.md) | Actual derived-image library security repair — 2026-11-11. |
 | [docs/reports/image-repair-2026-11-09.md](docs/reports/image-repair-2026-11-09.md) | Hosted derived-image advisory repair — 2026-11-09. |
 | [docs/reports/native-workbench-2026-11-11.md](docs/reports/native-workbench-2026-11-11.md) | Native offline workbench validation — 2026-11-11. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
