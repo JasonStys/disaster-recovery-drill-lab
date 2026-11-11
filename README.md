@@ -90,6 +90,7 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/image-library-security-2026-11-11.md](docs/reports/image-library-security-2026-11-11.md) | Actual derived-image library security repair — 2026-11-11. |
 | [docs/reports/image-repair-2026-11-09.md](docs/reports/image-repair-2026-11-09.md) | Hosted derived-image advisory repair — 2026-11-09. |
+| [docs/reports/installed-windows-1.1.0-r2-2026-11-11.md](docs/reports/installed-windows-1.1.0-r2-2026-11-11.md) | Observed installed workflows, delivery evidence, data preservation and practical limits. |
 | [docs/reports/native-workbench-2026-11-11.md](docs/reports/native-workbench-2026-11-11.md) | Native offline workbench validation — 2026-11-11. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
 | [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
@@ -100,6 +101,8 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed Word project guide bound to the documented source revision. |
 | [docs/reports/publications.json](docs/reports/publications.json) | Exact Office digests, visual review scopes and immutable source baselines. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and author review. |
+| [docs/reports/windows-application-guide-1.1.0-r2.docx](docs/reports/windows-application-guide-1.1.0-r2.docx) | Current peer-reviewed installed app guide with actual screenshots and immutable code. |
+| [docs/reports/windows-application-guide-1.1.0-r2.json](docs/reports/windows-application-guide-1.1.0-r2.json) | Exact guide, source, image and individually reviewed page identities. |
 | [docs/research.md](docs/research.md) | Primary research and design rationale. |
 | [docs/runbook.md](docs/runbook.md) | Operating and recovery runbook. |
 | [docs/testing.md](docs/testing.md) | Risk-based test strategy. |
@@ -166,3 +169,8 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
 
 [Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.
+
+
+## Current installed application guide
+
+The published **1.1.0** application has a [four-page guide](docs/reports/windows-application-guide-1.1.0-r2.docx) with actual installed screenshots, a practical journey, immutable source excerpts and operating limits. The [installed validation report](docs/reports/installed-windows-1.1.0-r2-2026-11-11.md) explains the results and [review manifest](docs/reports/windows-application-guide-1.1.0-r2.json) records exact source, image and page identities. Historical documentation remains available.

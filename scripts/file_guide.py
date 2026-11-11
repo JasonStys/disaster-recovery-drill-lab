@@ -4,22 +4,22 @@
 # variable: BEGIN — line 33
 # variable: END — line 33
 # variable: SPECIAL — line 34
-# definition: description — line 56
-# parameter: path — line 56
-# variable: content — line 60
-# variable: line — line 68
-# definition: main — line 74
-# variable: parser — line 76
-# variable: args — line 78
-# variable: files — line 79
-# variable: rows — line 87
-# variable: path — line 88
-# variable: label — line 89
-# variable: readme — line 91
-# variable: original — line 92
-# variable: begin — line 93
-# variable: end — line 93
-# variable: expected — line 94
+# definition: description — line 59
+# parameter: path — line 59
+# variable: content — line 63
+# variable: line — line 71
+# definition: main — line 77
+# variable: parser — line 79
+# variable: args — line 81
+# variable: files — line 82
+# variable: rows — line 90
+# variable: path — line 91
+# variable: label — line 92
+# variable: readme — line 94
+# variable: original — line 95
+# variable: begin — line 96
+# variable: end — line 96
+# variable: expected — line 97
 # END CODE MAP
 
 from __future__ import annotations
@@ -32,6 +32,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "docs/reports/windows-application-guide-1.1.0-r2.docx": "Current peer-reviewed installed app guide with actual screenshots and immutable code.",
+    "docs/reports/windows-application-guide-1.1.0-r2.json": "Exact guide, source, image and individually reviewed page identities.",
+    "docs/reports/installed-windows-1.1.0-r2-2026-11-11.md": "Observed installed workflows, delivery evidence, data preservation and practical limits.",
     "requirements-native.lock": "Exact complete hash-locked native freezing tool graph; no runtime setup dependency.",
     "docs/reports/project-guide.docx": "Reviewed Word project guide bound to the documented source revision.",
     "docs/reports/publications.json": "Exact Office digests, visual review scopes and immutable source baselines.",
