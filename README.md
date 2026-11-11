@@ -5,6 +5,12 @@
 
 A runnable encrypted-backup and isolated PostgreSQL recovery lab. Created by **[Jason Stys](https://github.com/JasonStys)** · [Professional contact](https://www.linkedin.com/in/jason-stys-31b30b351/).
 
+## Native offline workbench
+
+**Disaster Recovery Review Workbench 1.1.0** adds real native authorized-file/configuration controls, original-engine outcomes, complete evidence, literal search/filter, exact export and durable history. Prepared cases are inputs inside the same full app. [Usage, schemas, profile/privacy and complete compiled test](docs/native-application.md) · [Dated candidate evidence](docs/reports/native-workbench-2026-11-11.md).
+
+Inspect captured restore ledgers and recovery-point catalogs with the original exact-snapshot, financial-consistency, RPO/RTO/lost-order and conservative retention engines. Change review policy explicitly while preserving the original evidence. No backup, restore, SQL, Docker, forget, prune or deletion is executed by the GUI. The portable Windows recipe bundles the patched runtime; actual publication and PC installation are separate review steps, not inferred from a source badge.
+
 ## What it demonstrates
 
 - **Real encrypted backups:** hash-verified official restic, exact immutable snapshot IDs, full data integrity checks, verified restore, wrong-password and changed-pack rejection. No invented cryptography.
@@ -77,11 +83,14 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [docs/architecture.md](docs/architecture.md) | ADR-001: observed, isolated logical-snapshot recovery. |
 | [docs/contracts.md](docs/contracts.md) | Input, backup and recovery contracts. |
 | [docs/handbook.md](docs/handbook.md) | Disaster Recovery Drill Lab handbook. |
+| [docs/native-application.md](docs/native-application.md) | Disaster Recovery Review Workbench: native application. |
 | [docs/recovery-planning.md](docs/recovery-planning.md) | Recovery-point and retention review. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured independent consistency/objective evaluation benchmark. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source CI snapshot with actual completed checks. |
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
+| [docs/reports/image-library-security-2026-11-11.md](docs/reports/image-library-security-2026-11-11.md) | Actual derived-image library security repair — 2026-11-11. |
 | [docs/reports/image-repair-2026-11-09.md](docs/reports/image-repair-2026-11-09.md) | Hosted derived-image advisory repair — 2026-11-09. |
+| [docs/reports/native-workbench-2026-11-11.md](docs/reports/native-workbench-2026-11-11.md) | Native offline workbench validation — 2026-11-11. |
 | [docs/reports/native.html](docs/reports/native.html) | Escaped inert HTML rendering of native measured results. |
 | [docs/reports/native.json](docs/reports/native.json) | Measured native restic encryption/integrity/restore exercise. |
 | [docs/reports/planning-2026-11-09.md](docs/reports/planning-2026-11-09.md) | Recovery-point review validation — 2026-11-09. |
@@ -98,22 +107,34 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [dr/\_\_main\_\_.py](dr/__main__.py) | Offline JSON evaluation/report CLI; input files are data, never SQL or executable code. Jason Stys. |
 | [dr/backup.py](dr/backup.py) | Fixed local restic operations on fresh synthetic workspaces; passwords/output remain private. Jason Stys. |
 | [dr/contracts.py](dr/contracts.py) | Bounded strict JSON and ordinary-file contracts; no input becomes a command. Jason Stys. |
+| [dr/desktop.py](dr/desktop.py) | Native offline workbench: real project inputs, analysis, searchable evidence, history and export. Jason Stys. |
+| [dr/desktop\_io.py](dr/desktop_io.py) | Bounded regular descriptor reads and strict finite JSON for owner-local desktop state. Jason Stys. |
+| [dr/desktop\_project.py](dr/desktop_project.py) | Review actual captured-ledger recovery objectives and conservative point retention offline. Jason Stys. |
+| [dr/desktop\_state.py](dr/desktop_state.py) | Owner-local desktop profile, bounded durable bundles and non-overwriting export. Jason Stys. |
 | [dr/evidence.py](dr/evidence.py) | Closed synthetic measured recovery reports with escaped, network-inert HTML. Jason Stys. |
+| [dr/inputs.py](dr/inputs.py) | Bounded stable ordinary-file reads and streaming tool hashes for offline identity inputs. Jason Stys. |
 | [dr/ledger.py](dr/ledger.py) | Independent relational/financial consistency oracle and snapshot recovery objectives. Jason Stys. |
 | [dr/planning.py](dr/planning.py) | Objective-aware recovery-point selection and nondeleting retention review. Created by Jason Stys. |
 | [examples/objective-evaluation.json](examples/objective-evaluation.json) | Explicitly synthetic offline ledger and recovery-objective fixture. |
 | [pyproject.toml](pyproject.toml) | Strict types, lint, tests and combined statement/branch coverage gate. |
 | [requirements-dev.in](requirements-dev.in) | Exact validation dependencies; standard-library application runtime. |
 | [requirements-dev.lock](requirements-dev.lock) | Complete hash-pinned validation graph. |
+| [requirements-native.lock](requirements-native.lock) | Exact complete hash-locked native freezing tool graph; no runtime setup dependency. |
 | [scripts/benchmark.py](scripts/benchmark.py) | Informational measured canonical-ledger and recovery-evaluation timing/allocation, with correctness oracle. Jason Stys. |
 | [scripts/bootstrap.py](scripts/bootstrap.py) | Install one official hash-pinned native restic binary; no shell installer or archive paths execute. Jason Stys. |
+| [scripts/build\_native.py](scripts/build_native.py) | Build the complete real offline workbench as one Windows portable executable. Jason Stys. |
+| [scripts/check\_tk\_runtime.py](scripts/check_tk_runtime.py) | Require the selected interpreter's actual native Tk imports and loaded Tcl, without a display. Jason Stys. |
 | [scripts/code\_map.py](scripts/code_map.py) | Generate/check exact Python, SQL, shell and YAML symbol positions. Created by Jason Stys. |
 | [scripts/file\_guide.py](scripts/file_guide.py) | Generate exhaustive Git-tracked README summaries without including ignored runtime data. Jason Stys. |
 | [scripts/image\_check.py](scripts/image_check.py) | Build/scan a non-root-only image from the immutable official PostgreSQL base; do not suppress vulnerabilities. Jason Stys. |
+| [scripts/native\_acceptance.py](scripts/native_acceptance.py) | Actual final portable widgets/core/native-window acceptance with independent oracles. Jason Stys. |
+| [scripts/native\_common.py](scripts/native_common.py) | Actual patched Python/Tcl/Tk/PyInstaller runtime notices and authored portable icon. Jason Stys. |
 | [scripts/native\_drill.py](scripts/native_drill.py) | Run the actual encrypted synthetic-file exercise without Docker or real user data. Jason Stys. |
+| [scripts/native\_entry.py](scripts/native_entry.py) | Launch the actual bundled offline project workbench; no setup shell commands. Jason Stys. |
 | [scripts/planning\_demo.py](scripts/planning_demo.py) | Generate fictional multi-point dispatch-supply recovery review input. Created by Jason Stys. |
 | [scripts/postgres\_drill.py](scripts/postgres_drill.py) | Actual isolated PostgreSQL logical-snapshot disaster drill; only uniquely owned synthetic containers. Jason Stys. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
+| [scripts/test\_native\_app.py](scripts/test_native_app.py) | Run the real frozen workbench twice with an owned synthetic profile and exact bundle persistence. Jason Stys. |
 | [scripts/validate.sh](scripts/validate.sh) | Strict portable tests and maintained documentation/source invariants. Created by Jason Stys. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Verify immutable workflow/tool controls and nonsecret tracked files; not a production security assessment. Jason Stys. |
 | [sql/after\_snapshot.sql](sql/after_snapshot.sql) | Five committed orders deliberately outside the saved snapshot; loss must be reported. Jason Stys. |
@@ -125,10 +146,17 @@ CLI help: `python -m dr --help`, `python scripts/native_drill.py --help`, `pytho
 | [tests/test\_backup.py](tests/test_backup.py) | Real native restic encryption and negative oracles plus exclusive workspace guards. Jason Stys. |
 | [tests/test\_build\_diagnostics.py](tests/test_build_diagnostics.py) | Public Docker package failure diagnostics stay bounded and credential/terminal safe. Jason Stys. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | Strict JSON, size/depth/shape/type and ordinary-file adversarial boundaries. Jason Stys. |
+| [tests/test\_desktop\_gui.py](tests/test_desktop_gui.py) | Presentation-adapter unit tests with real core/SQLite workers; real widgets are separately frozen-tested. Jason Stys. |
+| [tests/test\_desktop\_io.py](tests/test_desktop_io.py) | Private state JSON and bounded descriptor-read boundary cases with actual file bytes. Jason Stys. |
+| [tests/test\_desktop\_project.py](tests/test_desktop_project.py) | Independent captured-recovery oracles, policy changes and no-secret/no-raw-ledger output checks. Jason Stys. |
+| [tests/test\_desktop\_state.py](tests/test_desktop_state.py) | Independent offline desktop ownership, byte-bound, SQLite and non-overwrite regressions. Jason Stys. |
 | [tests/test\_docker\_guards.py](tests/test_docker_guards.py) | Native ownership/isolation regressions use fabricated inspect fixtures; no local Docker call occurs. Jason Stys. |
 | [tests/test\_evidence.py](tests/test_evidence.py) | Fabricated report fixtures validate rejection/privacy/escaping, not measured disaster-recovery claims. Jason Stys. |
 | [tests/test\_ledger.py](tests/test_ledger.py) | Independent money/key oracles, snapshot equality and recovery-objective boundaries. Jason Stys. |
+| [tests/test\_native\_inputs.py](tests/test_native_inputs.py) | Actual same-descriptor input bounds and ownership-change cases for selected offline reports. Jason Stys. |
 | [tests/test\_planning.py](tests/test_planning.py) | Independent recovery selection, unknown-time and no-pruning retention tests. Created by Jason Stys. |
+| [tests/test\_profile\_admission.py](tests/test_profile_admission.py) | Actual pre-existing alias refusal and ordinary SQLite recovery continuity. Jason Stys. |
+| [tests/test\_tk\_runtime.py](tests/test_tk_runtime.py) | Actual isolated native Tcl positive plus fail-closed loader/interpreter/version controls. Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Official restic/scanner archive hashes and immutable PostgreSQL image digest. |
 
 <!-- END FILE GUIDE -->

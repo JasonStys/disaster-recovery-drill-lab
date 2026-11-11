@@ -45,3 +45,7 @@ Process deadlines, fresh outputs, verified owned resources and finite storage/CP
 Native encrypted-file tests run on reviewed amd64 Windows/Linux/macOS, with database evidence only from Linux CI. Selected measured evidence is published; private synthetic outputs remain local/ephemeral. Admin/daemon/toolchain are trusted; no certified sandbox or independent audit claim.
 
 Revisit physical PITR, ongoing load, independently signed evidence, off-site/immutable storage, escrow/rotation, HA/multi-region failover, application cutover and production restore permissions in separate authorized designs. No production action is implied by this ADR.
+
+## Native offline review layer
+
+A real main-thread Tk workbench delegates one retained analysis worker to a project adapter calling the original domain engines. Bounded selected-input reads and original schema/policy checks precede an immutable aggregate bundle commit. Views/search never alter original counts. An owner-local SQLite profile is outside install/source; all fixed mutable entries are admitted before initialization. Exit retains the same worker/profile lock until completion. Exact source/dirty/runtime/public-resource metadata is checked before private state. [Domain controls and deliberate boundary](native-application.md).
